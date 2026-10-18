@@ -35,6 +35,7 @@ namespace RecoVibes
         public RecoCard[] recommendations;
         public RecoDesign widget;
         public RecoStyle native; // how to draw the owner's design (null from older servers)
+        public string sdkNotice; // set when a newer package version is out
     }
 
     /// <summary>Colors as #RRGGBBAA.</summary>

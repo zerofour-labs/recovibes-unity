@@ -71,6 +71,8 @@ namespace RecoVibes.Tests
             Assert.AreEqual(new Color(1f, 90 / 255f, 95 / 255f), RecoMath.ParseColor(r.widget.accent, Color.black));
             Assert.AreEqual(0, RecoMath.ParseResponse("{\"receipt\":\"x\"}").recommendations.Length);
             Assert.IsNull(RecoMath.ParseResponse("not json"));
+            Assert.AreEqual("RecoVibes 1.4.0 is available", RecoMath.ParseResponse("{\"receipt\":\"x\",\"sdkNotice\":\"RecoVibes 1.4.0 is available\"}").sdkNotice);
+            Assert.IsTrue(string.IsNullOrEmpty(RecoMath.ParseResponse("{\"receipt\":\"x\"}").sdkNotice));
         }
     }
 }

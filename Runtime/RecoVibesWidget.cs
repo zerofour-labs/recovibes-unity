@@ -27,7 +27,10 @@ namespace RecoVibes
     public class RecoVibesWidget : MonoBehaviour
     {
         public const string WidgetVersion = "unity-1";
-        public const string PackageVersion = "1.2.2";
+        public const string PackageVersion = "1.3.0";
+
+        // The update notice is printed once per editor session, not per widget.
+        static bool noticeShown;
 
         public enum ThemeMode { FromDashboard, Light, Dark }
 
@@ -127,6 +130,11 @@ namespace RecoVibes
                     Debug.LogWarning("[RecoVibes] Unexpected response from the server.", this);
                     loading = null;
                     yield break;
+                }
+                if (Application.isEditor && !noticeShown && !string.IsNullOrEmpty(parsed.sdkNotice))
+                {
+                    noticeShown = true;
+                    Debug.LogWarning("[RecoVibes] " + parsed.sdkNotice, this);
                 }
                 // A fresh load is a fresh screen view.
                 data = parsed;
