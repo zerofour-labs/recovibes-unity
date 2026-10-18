@@ -5,7 +5,7 @@ Show recommendations from the RecoVibes network inside your game, and get your g
 ## Install
 
 1. In Unity, open **Window → Package Manager**, press **+**, choose **Add package from git URL…**
-2. Paste `https://github.com/tommanger/recovibes-unity.git` and press **Add**.
+2. Paste `https://github.com/zerofour-labs/recovibes-unity.git` and press **Add**.
 
 Needs Unity 2021.3 or newer and Unity UI (built in).
 
